@@ -12,3 +12,9 @@ class WrappedTF1(TF1):
 
   def __call__(self, x):
     return self.fcn(x, *np.frombuffer(self.GetParameters(), np.float64, self.npar))
+  
+  def parameters(self):
+    return np.frombuffer(self.GetParameters(), np.float64, self.npar)
+  
+  def errors(self):
+    return np.frombuffer(self.GetParErrors(), np.float64, self.npar)
