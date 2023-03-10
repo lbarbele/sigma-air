@@ -9,3 +9,4 @@ def guess(x, y):
   return [y.max(), x[y.argmax()], -100, 80]
 
 gaisser_hillas.guess = guess
+gaisser_hillas.npar = 4

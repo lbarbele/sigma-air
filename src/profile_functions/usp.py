@@ -8,3 +8,4 @@ def guess(x, y):
   return [y.max(), x[y.argmax()], 200, 0.25]
 
 usp.guess = guess
+usp.npar = 4
