@@ -31,7 +31,7 @@ def get_fcn(name: str):
 @click.option('-m', '--max-showers', type = click.IntRange(1, 4000000), required = True)
 @click.option('-o', '--out-file', type = click.Path(), required = True)
 @click.option('-f', '--function', type = click.Choice(['usp', 'gaisser-hillas', 'gaisser-hillas-six', 'anormal']), required = True)
-@click.option('-p', '--poisson', type = bool, default = True)
+@click.option('-p', '--poisson', is_flag = True, default = False)
 @click.option('-t', '--threshold', type = click.FloatRange(1e-5), default = 0.3)
 @click.argument('input_files', nargs = -1, type = click.Path(exists = True))
 def main(input_files, out_file, max_showers, function, poisson, threshold) -> int:
