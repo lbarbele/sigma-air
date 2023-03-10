@@ -66,7 +66,7 @@ def main(input_files, out_file, max_showers, function, poisson, threshold) -> in
     else:
       s = None
     # perform the fit
-    par, err, sts, chi2 = get_fit(fcn, x[msk], y[msk], s[msk])
+    par, err, sts, chi2 = get_fit(fcn, x, y, s)
     # fill the data table
     data[i, 0:npar] = par       # parameters
     data[i, npar:2*npar] = err  # errors
