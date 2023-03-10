@@ -7,7 +7,7 @@ def gaisser_hillas_six(x, nmax, xmax, x0, p0, p1 = 0, p2 = 0):
   return gaisser_hillas(x, nmax, xmax, x0, l)
 
 def guess(x, y):
-  return [y.max(), x[y.argmax()], -155, 93, -0.06, 0.00003]
+  return [y.max(), x[y.argmax()], -200., 70., -0.03, 0.00001]
 
 gaisser_hillas_six.guess = guess
 gaisser_hillas_six.npar = 6
