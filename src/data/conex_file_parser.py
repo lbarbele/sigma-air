@@ -1,24 +1,12 @@
-import glob
 import numpy as np
 from ROOT import TChain
+
+from ..util import get_file_list
 
 scalar_branch_names = ['lgE', 'zenith', 'azimuth', 'Seed2', 'Seed3', 'Xfirst', 'Hfirst', 'XfirstIn', 'altitude', 'X0', 'Xmax', 'Nmax', 'p1', 'p2', 'p3', 'chi2', 'Xmx', 'Nmx', 'XmxdEdX', 'dEdXmx', 'cpuTime', 'nX']
 array_branch_names = ['X', 'N', 'H', 'D', 'Mu', 'Gamma', 'Electrons', 'Hadrons', 'dMu', 'EGround']
 spec_branch_names = ['Xdep', 'dEdX']
 
-def get_file_list(
-  globs: str | list[str] | tuple[str]
-) -> list[str]:
-  if isinstance(globs, str):
-    fs = glob.glob(globs)
-    if len(fs) == 0:
-      raise RuntimeError(f'bad path "{globs}"')
-    return fs
-  elif isinstance(globs, list) or isinstance(globs, tuple):
-    return [f for g in globs for f in get_file_list(g)]
-  else:
-    raise RuntimeError(f'get_file_list: bad input "{globs}"')
-  
 def get_conex_tree(
   files: str | list[str]
 ) :
